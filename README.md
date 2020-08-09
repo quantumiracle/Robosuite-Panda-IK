@@ -4,7 +4,7 @@ This project is built on top of [Surreal Robotics Suite (Robosuite)](<https://gi
 
 
 
-There are also some modifications in scripts within Robosuite, where the updated scripts are in folder `./extra_modules_replacing_robosuite`:
+There are also some modifications in scripts within Robosuite, where the updated scripts are in folder `./extra_modules_replacing_robosuite`, and you might use these scripts to replace those in original Robosuite package to run this project smoothly:
 
 * `__init__.py`: replace `robosuite/robosuite/models/tasks/__init__.py`;
 * `placement_sampler.py`: replace `robosuite/robosuite/models/tasks/placement_sampler.py`;
