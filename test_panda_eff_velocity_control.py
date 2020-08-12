@@ -35,7 +35,8 @@ env = EEFXVelocityControl(env, **wrapper_args)  # make environment from forward 
 env.reset()
 
 for i in range(1000):
-    action = np.random.randn(wrapper_args['dof'])  # sample random action
+    # action = np.random.randn(wrapper_args['dof'])  # sample random action
+    action = 0.005*np.array([1,0,0])
     print(action)
     try:
         obs, reward, done, info = env.step(action)  # take action in the environment

@@ -19,7 +19,7 @@ class PandaLiftIK(PandaEnv):
     """
     This class corresponds to the lifting task for the Panda robot arm, 
     it is a modified version from robosuite PandaLift, changing the forward kinematics
-    to inverse kinematics control.
+    to inverse kinematics control for initialization.
     """
 
     def __init__(
@@ -219,12 +219,14 @@ class PandaLiftIK(PandaEnv):
         # self.sim.data.qpos[self._ref_joint_pos_indexes] = np.array(init_pos)  # directly set joint position
         
         # refer to sawyer_push.py, TODO: select better position
-        noise = self.np_random.uniform(-1, 1, 3) * np.array([0.12, 0.12, 0.0])
-        offset = np.array([0.0, -0.15, 0.007])
-        init_pos = noise + offset
+        # noise = self.np_random.uniform(-1, 1, 3) * np.array([0.12, 0.12, 0.0])
+        # offset = np.array([0.0, -0.15, 0.007])
+        # init_pos = noise + offset
+        init_pos = np.array([0.15, 0, 0.0])
+    
 
         # Below are modified from original panda_lift.py according to sawyer_push.py, to set position via IK (inverse kinematics)
-        init_pos = np.array(init_pos)  # set a proper initial position for gripper
+        # init_pos = np.array(init_pos)  # set a proper initial position for gripper
         init_pose = T.make_pose(init_pos, np.array([[0.0, 1.0, 0.0], [1.0, 0.0, 0.0], [0.0, 0.0, -1.0]]))
 
         ## Do the IK to find the joint angles for this initial pose ##

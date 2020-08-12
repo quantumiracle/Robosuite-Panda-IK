@@ -20,8 +20,10 @@ python test_panda_eff_velocity_control.py
 
 
 
+## Reference
 
+* [Previous work](<https://github.com/eugval/sim2real_dynamics_simulation>)
 
-### Author
+## Author
 
 Zihan Ding
