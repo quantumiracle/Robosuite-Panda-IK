@@ -222,7 +222,7 @@ class PandaLiftIK(PandaEnv):
         # noise = self.np_random.uniform(-1, 1, 3) * np.array([0.12, 0.12, 0.0])
         # offset = np.array([0.0, -0.15, 0.007])
         # init_pos = noise + offset
-        init_pos = np.array([0.0, 0.0, 0.0])
+        init_pos = self._right_hand_pos+np.array([0.0, 0.0, 0.1])
     
 
         # Below are modified from original panda_lift.py according to sawyer_push.py, to set position via IK (inverse kinematics)
@@ -241,11 +241,11 @@ class PandaLiftIK(PandaEnv):
         joint_angles = self.IK_solver.compute_joint_angles_for_endpoint_pose(init_pose_in_base, ref_q)
 
         # Set the robot joint angles
-        # self.set_robot_joint_positions(joint_angles)
+        self.set_robot_joint_positions(joint_angles)
 
         # Set reference attributes
-        # self.init_qpos = joint_angles
-        self.init_qpos = self.mujoco_robot.init_qpos  # initial position is a good gesture
+        self.init_qpos = joint_angles
+        # self.init_qpos = self.mujoco_robot.init_qpos  # initial position is a good gesture
         self.init_right_hand_quat = self._right_hand_quat
         self.init_right_hand_orn = self._right_hand_orn
         self.init_right_hand_pos = self._right_hand_pos

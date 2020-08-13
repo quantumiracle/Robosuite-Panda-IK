@@ -36,7 +36,7 @@ env.reset()
 
 for i in range(1000):
     # action = np.random.randn(wrapper_args['dof'])  # sample random action
-    action = 0.005*np.array([0,0,1])
+    action = 0.005*np.array([0,1,0])
     # action = np.zeros(3)
     print(action)
     try:
